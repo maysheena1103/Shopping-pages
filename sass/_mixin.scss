@@ -1,0 +1,15 @@
+
+@mixin word($size)
+	{
+		font-family: Microsoft JhengHei;
+		color: #9EA291;
+		font-size: $size;
+		letter-spacing:0.5px;
+		text-align: center;
+	}
+@mixin bot ($width, $color, $border-r)
+	{
+		background-color: $color;
+		width: $width;
+		@include border-radius($border-r);
+	}

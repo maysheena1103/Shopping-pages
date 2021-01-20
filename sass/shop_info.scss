@@ -1,0 +1,744 @@
+// ---------------------------------------------------------------------------
+// Imports
+ 
+@import "base";
+@import "susy";
+@import "compass/css3";
+ 
+$total-columns : 4;
+$column-width  : 60px;
+$gutter-width  : 20px;
+$grid-padding  : $gutter-width / 2;
+
+
+
+$pad: 480px 8;
+$desk: 768px 12;
+ 
+
+$bubble-c: #d54881;
+$step-c: #E9416B;
+$step-c-a: #BEBEBE;
+/* -------------------------------------------------------------------------*/
+/* Layout 
+    html,body{
+        *{@include box-sizing(border-box);}
+
+    }*/
+.container 
+{
+ 
+    /* min */
+    @include container;
+    @include susy-grid-background;
+
+ 	/* 640*/
+ 	@include at-breakpoint($pad) 
+ 	{
+ 	     @include container;
+ 	     @include susy-grid-background;
+ 	 } 
+  
+    /* 1024 */
+    @include at-breakpoint($desk) 
+    {
+        @include container;
+        @include susy-grid-background;
+    }
+    .border-box
+        {
+            @include box-sizing(border-box);
+        }
+    .hidden
+        {
+            display: none;
+        }
+
+    .shopping_car
+        {
+            width: 336px;
+            padding: 5px;
+            height: 93px;
+            border: 1px solid #CBCCC4;
+            background: #FFFFFF;
+            position: fixed;
+            a { text-decoration: none }
+            a:link {color:#727463}
+            a:visited {color:#727463}
+            a:hover {color:#EE1E52}
+            @include at-breakpoint($pad) 
+                {
+                     margin-left: 38%;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    margin-left: 53%;
+                }
+        }
+    .shopping_img
+        {
+            width: columns( 4,4);
+            height: 28px;
+            margin-bottom: 10px;
+
+            @include at-breakpoint($pad) 
+                {
+                    width: columns( 4  , 4.05);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    width: columns( 4  , 4.05);
+                }
+        }
+    .shopping_bottom
+        {
+            
+            @include span-columns( 1 omega, 4);
+            width: 30%;
+            height: 27px;
+            border: none;
+            display:inline-block;
+            cursor: pointer;
+            background-image: url(../wondershow_shop/shop_info_phone_07.png);
+            background-repeat: no-repeat;
+        }
+    .car_list
+        {
+            @include span-columns( 2,4);
+            margin-left: gutter(4);
+            font-size: 13px;
+            color: #727463;
+            margin-bottom: 1%;
+            @include at-breakpoint($pad) 
+                {
+                    width: columns( 2 ,4.05);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    width: columns( 2 ,4.05);
+                }
+        }
+    .middle
+        {
+            
+            margin-top: gutter(4);
+            font-size: 13px;
+            
+        }
+    .exclamation
+        {
+            color: #E41D58;
+            margin-bottom: gutter(4);
+            a:link {color:#E41D58}
+            a:visited {color:#E41D58}
+            a:hover {color:#E41D58}
+            @include at-breakpoint($pad)
+                {
+                    @include span-columns( 6 ,8);
+                }
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns( 6 ,12);
+                }
+        }
+    .word
+        {
+            color: #888B78;
+            font-size: 13px;
+            margin-right: gutter(18);
+        }
+    .show
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8,8);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 12,12);
+                }
+        }
+    .pic
+        {
+            @include span-columns( 4,4);
+            margin-right: 0px;
+             @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 7,8);
+                    margin-right: 0px;
+                }
+
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 7.1,12);
+                    margin-right: 0px;
+                }
+        }
+
+
+
+
+    .change
+        {
+            @include span-columns( 4,4);
+            width: 300px;
+            height: 327px;
+            padding-top: 4%;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8,8);
+                }     
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega,8);
+                    width: 32%;
+                    margin-right: 2%;
+                }
+        }
+    .padding
+        {
+            padding: 8px;
+            margin-top: 18%;
+        }
+    .color_a
+        {
+            color:#FB7E3C;
+        }
+    .color_b
+        {
+            color: #E94576;
+        }
+    .line
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8,8);
+                }     
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega,4);
+                }
+        }
+    .share
+        {
+            text-align: center;
+            height: 11%;
+            padding-top: 2.3%;
+            margin-bottom: gutter(10);
+            margin-top: 1%;
+            margin-right: 0px;
+            background-color: #FFFFFF;
+            @include border-radius(3px);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4,8);
+                    margin-right: 0px;
+                    height: 37px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 ,4);
+                    margin-right: 0px;
+                }
+        }
+    .count
+        {
+            @include span-columns( 1,4);
+            width: 100px;
+            padding-left: gutter(6);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 2,4);
+                    width: 100px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 2,4);
+                    width: 100px;
+                }
+        }
+    .select
+        {  
+            height:30px;  
+            width:60px;  
+            text-align: center;
+            line-height: 13px;  
+            border:1px solid #9bc0dd;  
+            @include border-radius(5px);
+        }
+    .fb
+        {
+            @include span-columns( 2 omega,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 2 omega,4);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 2 omega,4);
+                }
+        }
+    .add_shoping
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 omega,8);
+                    margin-left: 0.5%;
+                    margin-top: 1%;
+                }     
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega,4);
+                }
+        }
+    .introduction
+        {
+            @include span-columns( 4,4);
+            line-height: 25px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 ,4);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega,4);
+                }
+        }
+    .pc_word
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 2 omega,4);
+                    width: 40%;
+                    margin-top: 20px;
+                    display: inline;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 2 omega,4);
+                }
+        }
+    .border
+        {
+            background-color: #E8DFD9;
+            @include span-columns( 4,4);
+            padding: 0.5%;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8 ,8);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8.5 ,12);
+                }
+        }
+    .title
+        {
+            
+            height: 38px;
+            @include pre(0.6);
+            @include at-breakpoint($pad) 
+                {
+                    height: 38px;
+                    @include pre(1.6);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    height: 38px;
+                }
+            
+        }
+    .title_a
+        {
+            
+            height: 38px;
+            @include at-breakpoint($pad) 
+                {
+                    height: 38px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    height: 38px;
+                }
+            
+        }
+    .style
+        {
+            
+            @include span-columns( 1,4);
+            width: 29px;
+            height: 38px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 1 ,8);
+                    width: 29px;
+                    height: 38px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 1 ,12);
+                    width: 29px;
+                    height: 38px;
+                }
+        }
+    .center
+        {
+            @include span-columns( 1,4);
+            width: 53px;
+            margin-top: 13px;
+            margin-left: 5px;
+            
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 2 ,8);
+                    width: 53px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 ,12);
+                    width: 53px;
+                }
+        }
+    .bg_border
+        {
+            @include span-columns( 4,4);
+            background:#FFFFFF;
+            margin-right: 0px;
+            padding: 10px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8,8);
+                    margin-right: 0px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8.5 ,8.5);
+                    margin-right: 0px;
+                }
+        }
+    .bg_a
+        {
+            @include span-columns( 4,4);
+            margin-right: 0px;
+            margin-bottom: 20px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8,8);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8.5 ,8.5);
+                }
+        }
+
+
+
+
+    .right_illust
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8 ,8);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 omega ,12);
+                }
+        }
+    .rule
+        {
+            @include span-columns( 3,4);
+            margin-top: 7%;
+            margin-bottom: 7%;
+            @include pre(0.8);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 ,8);
+                    @include pre(2);
+                    margin-top:7%;
+                    margin-bottom: 10%;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 ,3 );
+                    @include pre(0);
+                    margin-top: 10%;
+                    margin-bottom: 10%;
+                }
+        }
+    .margin-bottom
+        {
+            margin-bottom: 10px;
+        }
+    .margin-bottom_a
+        {
+            margin-bottom: 7%;
+            @include at-breakpoint($pad) 
+                {
+                    
+                    margin-bottom:7%;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    margin-bottom: 10%;
+                }
+        }
+
+    .tr_a
+        {
+            color: #EC2859;
+            padding-top: 10px;
+
+        }
+    .tr_b
+        {
+            border-bottom: 1px solid #888888;
+            padding-bottom: 7px;
+            margin-top: 7px;
+        }
+    .notice
+        {
+            @include span-columns( 4,4);
+            margin-top: 5%;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8 ,8);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 ,3 );
+                }
+        }
+    .color_c
+        {
+            color: #FE4132;
+        }
+
+    .height
+        {
+            line-height: 25px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+    .height_a
+        {
+            line-height: 25px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+    .margin-top
+        {
+            margin-top: 10px;
+        }
+    .weight
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 ,4);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 ,3 );
+                }
+        }
+    .border-right
+        {
+            border-right: 1px solid #B5B5B5;
+        }
+
+    .card_a
+        {
+            @include span-columns( 1.5,4);
+            height: 25px;
+            margin-left: 10px;
+            
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 1.5 ,3);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 1.5 ,3 );
+                }
+        }
+    .center_a
+        {
+            margin-right: 0px;
+            margin-top: -2px;
+            @include at-breakpoint($pad) 
+                {
+                    
+                    margin-right: 0px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    
+                    margin-right: 0px;
+                }
+        }
+    .card_img
+        {
+            
+            @include span-columns( 0.5,2);
+            width: 30px;
+            height: 19px;
+            margin-top: 2px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 0.5 ,2);
+                    margin-top: 2px;
+                    width: 30px;
+                    height: 19px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 0.5 ,3);
+                    margin-top: 2px;
+                    width: 30px;
+                    height: 19px;
+                }
+        }
+    .wonder
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8 ,8);
+                    display: inline;
+                    margin-left: 15px;
+                    margin-top: -27px;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 12 ,12);
+                }
+        }
+    .wonder_a
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 8 ,8);
+                    height: 20px;
+                    margin-top: 50px;
+                    display: inline;
+                    background-color: #EFE0CF;
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 12 ,12);
+                }
+        }
+    
+
+
+
+
+
+
+
+    .bepro
+        {
+            display: none;
+            @include at-breakpoint($pad)
+                {
+                    @include span-columns(8,8);
+                    display: inline;
+                    margin-right: 0%;
+                    margin-top: 10px;
+                }
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns(10,12); 
+                    @include pre(1.1);
+                }
+        }
+    .product
+        {
+            @include span-columns( 2,4);
+            margin-right: 0%;
+            margin-top: 15px;
+            @include at-breakpoint($pad)
+                {
+                    @include span-columns(2,8);
+                    margin-right: 1%;
+                    margin-left: 1%;
+
+                }
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns(2,10);
+                    margin-right: 3%;
+                    margin-left: 3%;
+                }
+        }
+    .producta
+        {
+            @include span-columns( 2 omega,4);
+            margin-right: 0%;
+            margin-top: 15px;
+            @include at-breakpoint($pad)
+                {
+                    @include span-columns(2,8);
+                    margin-right: 1%;
+                    margin-left: 1%;
+                }
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns(2,10);
+                    margin-right: 3%;
+                    margin-left: 3%;
+                }
+        }
+    .pro_img
+        {
+            @include span-columns( 2,2);
+            @include box-sizing(border-box);
+            padding: 5px;
+            border: 1px solid #CFD0C8;
+            @include border-radius(3px);
+
+        }
+    .product_word
+        {
+            @include span-columns( 1,2);
+        }
+    .pro_word
+        {
+            
+            margin-right: 0%;
+            width: 57%;
+            color: #0080FF;
+            font-family: Microsoft JhengHei;
+            letter-spacing:0px;
+            font-size: 14px;
+        }
+    .pro_price
+        {
+            @include span-columns( 1 omega,2);
+            color: #FD025A;
+            margin-right: -7%;
+        }
+/*
+    .title_a
+        {
+            @include span-columns( 4,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 omega,6);
+                }
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 6 omega,8);
+                }
+        }
+*/ 
+    
+    
+}

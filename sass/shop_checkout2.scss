@@ -1,0 +1,515 @@
+// ---------------------------------------------------------------------------
+// Imports
+ 
+@import "base";
+@import "susy";
+@import "compass/css3";
+ 
+$total-columns : 4;
+$column-width  : 60px;
+$gutter-width  : 20px;
+$grid-padding  : $gutter-width / 2;
+
+
+
+$pad: 480px 6;
+$desk: 768px 8;
+ 
+
+$bubble-c: #d54881;
+$step-c: #E9416B;
+$step-c-a: #BEBEBE;
+/* -------------------------------------------------------------------------*/
+/* Layout */
+ 
+.container 
+{
+ 
+    /* min */
+    @include container;
+    @include susy-grid-background;
+
+ 	/* 640*/
+ 	@include at-breakpoint($pad) 
+ 	{
+ 	     @include container;
+ 	     @include susy-grid-background;
+ 	 } 
+  
+    /* 1024 */
+    @include at-breakpoint($desk) 
+    {
+        @include container;
+        @include susy-grid-background;
+    }
+    /* max 
+    @include at-breakpoint(1280px 12)
+    {
+        @include container;
+        @include susy-grid-background;
+    }*/
+    
+    .word
+        {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+    .bubble
+        {
+            @include span-columns( 1,4);
+            .example-obtuse
+                {
+                    position:relative;
+                    width: 80px;
+                    height: 35px;
+                    padding: 10px;
+                    margin: 20% 0% 25%;
+                    color:#fff;
+                    background: $bubble-c;
+                    @include border-radius(10px);
+                    @include single-box-shadow(#5B5E51, 3px, 3px, 3px, false, false);
+                }
+            /* creates the smaller triangle */
+            .example-obtuse:before
+                {
+                    content:"";
+                    position:absolute;
+                    bottom:-20px;
+                    right: 50%;
+                    border-width:0 0 30px 20px;
+                    border-style:solid ;
+                    border-color:transparent $bubble-c;
+                    /* reduce the damage in FF3.0 */
+                    display:block;
+                    width:0;
+
+                }
+            @include at-breakpoint($pad) 
+                {
+                    
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    display: none;
+                }
+        }
+    .margin
+        {
+            margin-left: 9%;
+            margin-right: 16%;
+        }
+    .cir
+        {
+            @include span-columns( 1,4);
+            width: $column-width;
+            height: $column-width;
+            background-color:  $bubble-c;
+            font-size: 30px;
+            margin-top: 20px;
+            padding-top: 12px;
+            margin-left: 20%;
+            margin-right: 10%;
+            font-weight: bolder;
+            color: #FFFFFF;
+            @include box-sizing(border-box);
+            @include border-radius(50%);
+
+            @include at-breakpoint($desk)
+                {
+                    display: none;
+                }
+        }
+    .step
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    display: none;
+                } 
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns( 2,8);
+                    display: inline;
+                    color: #FFFFFF;
+                    .step_bg
+                        {
+                            width: 95%;
+                            height: 18px;
+                            padding: 6px;
+                            position: relative;
+                            background-color: $step-c;
+                        }
+                    .step_bga
+                        {
+                            color: #8A8D7A;
+                            background-color: $step-c-a;
+                        }
+                    .step_bg:after
+                        {
+                            content:"";
+                            position:absolute;
+                            bottom: 1%;
+                            right: -7%;
+                            width: 0px;
+                            height: 0px;
+                            border-style: solid;
+                            border-width: 15px 0 15px 11px;
+                            border-color: transparent transparent transparent $step-c;
+                            line-height: 0px;
+                            _border-color: #000000 #000000 #000000 $step-c;
+                            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+                        }
+                    .step_bga:after
+                        {
+                            
+                            border-color: transparent transparent transparent $step-c-a;
+                            _border-color: #000000 #000000 #000000 $step-c-a;
+                        }
+                    .step_img
+                        {
+                            margin-bottom: -10px;
+                            margin-top: 20%;
+
+                        }
+                }
+        }
+    .hidden
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    display: none;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    display: inline;
+                    visibility:hidden
+                }
+        }
+    .select
+        {
+             @include span-columns( 3,4);
+             margin-top: 25px;
+             margin-bottom: 10px;
+            .select_a
+                {
+                   @include border-radius(4px);
+                   height: 25px;
+                   width: 60%;
+                   color: #8A8D78;
+                   background-color: rgba(239,239,239,0.8);
+                }
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 3 omega,6);
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 3 omega,8);
+                }
+        }
+
+
+
+
+
+    .td_img
+        {
+            border: 1px solid #B8BAAD;
+            width: 40px;
+            height: 40px;
+            margin: 6px;
+            margin-right: 8px;
+        }
+    .list
+        {
+            @include span-columns( 4 , 4 );
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 , 6 );
+
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8 , 8 );
+                }
+        }
+    .first
+        {
+            @include span-columns( 4 , 4 );
+            height: 60px;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 , 6 );
+
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8 , 8 );
+                }
+        }
+    .title
+        {
+            @include span-columns( 4 , 4 );
+            height: 28px;
+            background-color: #9C9E8F;
+            padding-top: 3px;
+            @include box-sizing(border-box);
+            color: #DBDBDB;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 , 6 );
+
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8 , 8 );
+                }
+        }
+    .name
+        {
+            @include span-columns( 2 , 4 );
+            width: 57%;
+            
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 2 , 6 );
+                    width: 33%;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 2 , 8 );
+                    width: 26%;
+                }
+        }
+    .name_a
+        {
+            width: 63%;
+            float: right;
+            margin-top: 10%;
+            @include at-breakpoint($pad) 
+                { 
+                    width: auto;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    
+                    margin-top: 20px;
+                }
+        }
+    .price_a
+        {
+            @include span-columns( 1 omega, 4 );
+            width: 36%;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 1 , 6 );
+                    width: 17%;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 1 , 8 );
+                    width: 15%;
+                }
+        }
+    .margin-top
+        {
+            margin-top: 6%;
+
+            @include at-breakpoint($pad) 
+                {
+                    margin-top: 3%;
+                } 
+
+        }
+    .number
+        {
+            @include span-columns( 2 omega, 4 );
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 1 , 6 );
+                    display: inline-block;
+
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 1 , 8 );
+                }
+        }
+    .price_b
+        {
+            @include span-columns( 2 omega, 4 );
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 1 , 6 );
+                    display: inline-block;
+
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 1 , 8 );
+                }
+        }
+    .text-align
+        {
+            
+            text-align: center;
+        }
+
+
+
+
+
+
+        
+    .span
+        {
+            font-size: 18px;
+            font-weight: bolder;
+            color: #FF2F2F;
+            @include at-breakpoint($pad) 
+                {
+                    display: none;
+                } 
+        }
+    .span_a
+        {
+            font-size: 14px;
+            font-weight: bolder;
+            color: #FF2F2F;
+        }
+    .border
+        {
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 , 6 );
+                    padding-bottom: px;
+                    border-bottom:  1px solid #C0C0C0;
+                    margin-bottom: 20px;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8,8);
+                }
+        }
+    .cont
+        {
+            @include span-columns( 4,4);
+            text-align: left;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom:  1px solid #C0C0C0;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 3 omega,6);
+                    text-align: right;
+                    padding-right: 20px;
+                    border: none;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega,8);
+                }
+        }
+    .notice
+        {
+            @include span-columns( 3 omega,4);
+            width: 225px;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            @include border-radius(4px);
+            background-color: #D7D8D1;
+            color: #717463;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 3 , 6 );
+                    background:none;
+                    margin-top: -69px;
+                    margin-left: 20px;
+                    @include border-radius(0px);
+                    border-right: 1px solid #C0C0C0;
+                    
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 5,8);
+                }
+        }
+    .middle_bottom
+        {
+            @include span-columns( 4 ,4);
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 ,6);
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8 ,8);
+                }
+        }
+    .list_bo
+      {
+        
+        color:  #000000 ;
+        padding: 10px;
+        float: left;
+
+      }
+    .buttom_a
+        {
+            @include span-columns( 2 ,4);
+            padding: 8px;
+            background-color: #C1C4B9;
+            border: none;
+            color: #ffffff;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 6 ,6);
+                    width: 143px;
+                    height: 30px;
+                    margin-left: 30%;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 8  ,8);
+                    width: 143px;
+                    height: 30px;
+                    margin-left: 50%;
+                }
+        }
+    .buttom_b
+        {
+            @include span-columns( 2 omega ,4);
+            padding: 8px;
+            background-color: #F32755;
+            border:none;
+            color: #ffffff;
+            @include at-breakpoint($pad) 
+                {
+                    @include span-columns( 4 omega ,6);
+                    width: 143px;
+                    height: 30px;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    @include span-columns( 4 omega ,8);
+                    width: 143px;
+                    height: 30px;
+                }
+        }
+    .margin-right
+        {
+            margin-right: 70%;
+            margin-bottom: 30px;
+        }
+    .hidden_a
+        {
+            visibility:hidden;
+        }
+
+}

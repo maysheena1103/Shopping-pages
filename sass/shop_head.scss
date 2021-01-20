@@ -1,0 +1,190 @@
+// ---------------------------------------------------------------------------
+// Imports
+ 
+@import "base";
+@import "susy";
+@import "compass/css3";
+ 
+$total-columns : 4;
+$column-width  : 60px;
+$gutter-width  : 20px;
+$grid-padding  : $gutter-width / 2;
+
+
+
+$pad: 480px 6;
+$desk: 768px 8;
+ 
+
+$bubble-c: #d54881;
+$step-c: #E9416B;
+$step-c-a: #BEBEBE;
+/* -------------------------------------------------------------------------*/
+/* Layout */
+ 
+.container 
+{
+ 
+    /* min */
+    @include container;
+    @include susy-grid-background;
+
+ 	/* 640*/
+ 	@include at-breakpoint($pad) 
+ 	{
+ 	     @include container;
+ 	     @include susy-grid-background;
+ 	 } 
+  
+    /* 1024 */
+    @include at-breakpoint($desk) 
+    {
+        @include container;
+        @include susy-grid-background;
+    }
+    /* max 
+    @include at-breakpoint(1280px 12)
+    {
+        @include container;
+        @include susy-grid-background;
+    }*/
+    
+    .word
+        {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+    .bubble
+        {
+            @include span-columns( 1,4);
+            .example-obtuse
+                {
+                    position:relative;
+                    width: 80px;
+                    height: 35px;
+                    padding: 10px;
+                    margin: 20% 0% 25%;
+                    color:#fff;
+                    background: $bubble-c;
+                    @include border-radius(10px);
+                    @include single-box-shadow(#5B5E51, 3px, 3px, 3px, false, false);
+                }
+            /* creates the smaller triangle */
+            .example-obtuse:before
+                {
+                    content:"";
+                    position:absolute;
+                    bottom:-20px;
+                    right: 50%;
+                    border-width:0 0 30px 20px;
+                    border-style:solid ;
+                    border-color:transparent $bubble-c;
+                    /* reduce the damage in FF3.0 */
+                    display:block;
+                    width:0;
+
+                }
+            @include at-breakpoint($pad) 
+                {
+                    
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    display: none;
+                }
+        }
+    .margin
+        {
+            margin-left: 9%;
+            margin-right: 16%;
+        }
+    .cir
+        {
+            @include span-columns( 1,4);
+            width: $column-width;
+            height: $column-width;
+            background-color:  $bubble-c;
+            font-size: 30px;
+            margin-top: 20px;
+            padding-top: 12px;
+            margin-left: 20%;
+            margin-right: 10%;
+            font-weight: bolder;
+            color: #FFFFFF;
+            @include box-sizing(border-box);
+            @include border-radius(50%);
+
+            @include at-breakpoint($desk)
+                {
+                    display: none;
+                }
+        }
+    .step
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    display: none;
+                } 
+            @include at-breakpoint($desk)
+                {
+                    @include span-columns( 2,8);
+                    display: inline;
+                    color: #FFFFFF;
+                    .step_bg
+                        {
+                            width: 95%;
+                            height: 18px;
+                            padding: 6px;
+                            position: relative;
+                            background-color: $step-c;
+                        }
+                    .step_bga
+                        {
+                            color: #8A8D7A;
+                            background-color: $step-c-a;
+                        }
+                    .step_bg:after
+                        {
+                            content:"";
+                            position:absolute;
+                            bottom: 1%;
+                            right: -7%;
+                            width: 0px;
+                            height: 0px;
+                            border-style: solid;
+                            border-width: 15px 0 15px 11px;
+                            border-color: transparent transparent transparent $step-c;
+                            line-height: 0px;
+                            _border-color: #000000 #000000 #000000 $step-c;
+                            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+                        }
+                    .step_bga:after
+                        {
+                            
+                            border-color: transparent transparent transparent $step-c-a;
+                            _border-color: #000000 #000000 #000000 $step-c-a;
+                        }
+                    .step_img
+                        {
+                            margin-bottom: -10px;
+                            margin-top: 20%;
+
+                        }
+                }
+        }
+    .hidden
+        {
+            display: none;
+            @include at-breakpoint($pad) 
+                {
+                    display: none;
+                } 
+            @include at-breakpoint($desk) 
+                {
+                    display: inline;
+                    visibility:hidden
+                }
+        }
+}
